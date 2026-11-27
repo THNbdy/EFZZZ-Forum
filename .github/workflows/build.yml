@@ -3,7 +3,7 @@ name: Build APK
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:   # 允许在网页手动点按钮触发
+  workflow_dispatch:
 
 jobs:
   build:
@@ -22,11 +22,12 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build debug APK
-        run: ./gradlew assembleDebug --no-daemon
+        run: ./gradlew assembleDebug --no-daemon --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: CafeBBS-debug
+          name: EFZZZ-Forum-debug
           path: app/build/outputs/apk/debug/*.apk
           retention-days: 14
