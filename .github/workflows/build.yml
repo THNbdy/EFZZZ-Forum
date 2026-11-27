@@ -5,11 +5,15 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -21,13 +25,22 @@ jobs:
       - name: Grant execute permission
         run: chmod +x gradlew
 
-      - name: Build debug APK
+      - name: Build Debug APK
         run: ./gradlew assembleDebug --no-daemon --stacktrace
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        if: always()
+      - name: Rename APK
+        run: |
+          mkdir -p out
+          cp app/build/outputs/apk/debug/*.apk out/华二紫竹论坛-debug.apk
+
+      - name: Publish Release
+        uses: softprops/action-gh-release@v2
         with:
-          name: EFZZZ-Forum-debug
-          path: app/build/outputs/apk/debug/*.apk
-          retention-days: 14
+          tag_name: v1.0.${{ github.run_number }}
+          name: 华二紫竹论坛 v1.0.${{ github.run_number }}
+          body: |
+            Flarum 客户端测试版
+            论坛地址：efzzz.pro
+            AI 助手功能暂未开放
+          files: out/华二紫竹论坛-debug.apk
+          token: ${{ secrets.GITHUB_TOKEN }}
