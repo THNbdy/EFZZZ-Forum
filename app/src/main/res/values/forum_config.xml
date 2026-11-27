@@ -2,10 +2,10 @@
 <resources>
     <string name="app_name" translatable="false">华二紫竹论坛</string>
     <string name="flarum_base_url" translatable="false">https://efzzz.pro/</string>
-    <string name="check_update_url" translatable="false">https://efzzz.pro/</string>
-    <string name="user_agreement_url" translatable="false">https://efzzz.pro/</string>
-    <string name="privacy_policy_url" translatable="false">https://efzzz.pro/</string>
+    <string name="check_update_url" translatable="false">-</string>
+    <string name="user_agreement_url" translatable="false">-</string>
+    <string name="privacy_policy_url" translatable="false">-</string>
 
-    <string name="pusher_app_key" translatable="false"></string>
-    <string name="pusher_cluster" translatable="false"></string>
+    <string name="pusher_app_key" translatable="false">-</string>
+    <string name="pusher_cluster" translatable="false">-</string>
 </resources>
