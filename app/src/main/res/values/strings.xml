@@ -22,8 +22,8 @@
     <string name="theme_system">跟随系统</string>
     <string name="theme_light">亮色</string>
     <string name="theme_dark">暗色</string>
-    <string name="theme_cafe_light">咖啡厅·暖</string>
-    <string name="theme_cafe_dark">咖啡厅·夜</string>
+    <string name="theme_cafe_light">花紫·白昼</string>
+    <string name="theme_cafe_dark">花紫·黑夜</string>
 
     <string name="history">历史记录</string>
     <string name="following_discussions">关注的主题</string>
